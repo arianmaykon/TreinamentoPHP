@@ -5,21 +5,17 @@ $observacao = trim($_POST['observacao']);
 
 
 
-$con = mysql_connect('localhost', 'root', '');
+$con = mysql_connect('localhost', 'root', 'root');
 mysql_select_db('treinamentophp');
 
-$sql = "insert into pessoa (id, nome, data_nascimento, observacao) values (9, '"
+$sql = "insert into pessoa (nome, data_nascimento, observacao) values ('"
     . $nome . "', '" . $data_nascimento . "', '" . $observacao . "')";
 
 $resultado = mysql_query($sql);
 
-// NAO FUNFOU
-$linhasAfetadas = mysql_affected_rows($resultado);
-//$linhasAfetadas = mysql_insert_id($resultado);
-
 mysql_close($con);
 
-if ($linhasAfetadas) {
+if ($resultado) {
     $msg = 'Cadastro efetuado com sucesso!';
     header('Location: index.php?msg=' . $msg);
 } else {
