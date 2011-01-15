@@ -25,7 +25,6 @@
             </thead>
             <tbody>
                 <?php
-
                     $con = mysql_connect('localhost', 'root', 'root');
                     mysql_select_db('treinamentophp');
 
@@ -35,7 +34,7 @@
 
                     while ($row = mysql_fetch_assoc($resultado)) {
                         echo "<tr>
-                            <td>" . $row['id'] . "</td>
+                            <td><a href='cadastrar.php?id=" . $row['id'] . "'>" . $row['id'] . "</a></td>
                             <td>" . $row['nome'] . "</td>
                             <td>" . $row['data_nascimento'] . "</td>
                             <td>" . $row['observacao'] . "</td>
@@ -57,5 +56,4 @@
         <a href="cadastrar.php">Cadastrar nova Pessoa</a>
 
     </body>
-<!--    <td><a href='editar.php?id=" . $row['id'] . "'>" . $row['id'] . "</a></td>-->
 </html>
